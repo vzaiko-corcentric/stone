@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
+namespace App\Game;
 
-namespace App;
-
+use App\Player\Player;
 
 class Game
 {
@@ -17,17 +18,17 @@ class Game
     private Player $player2;
 
     /**
-     * @var IGameStrategy
+     * @var GameStrategyInterface
      */
-    private IGameStrategy $game;
+    private GameStrategyInterface $game;
 
     /**
      * Game constructor.
-     * @param IGameStrategy $game
+     * @param GameStrategyInterface $game
      * @param Player $player1
      * @param Player $player2
- */
-    public function __construct(IGameStrategy $game, Player $player1, Player $player2)
+     */
+    public function __construct(GameStrategyInterface $game, Player $player1, Player $player2)
     {
         $this->game = $game;
         $this->player1 = $player1;

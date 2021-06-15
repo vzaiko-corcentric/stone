@@ -1,10 +1,9 @@
 <?php
+declare(strict_types=1);
 
+namespace App\Player;
 
-namespace App;
-
-
-class Player implements IPlayerStrategy
+class Player implements PlayerStrategyInterface
 {
     /**
      * @var string
@@ -12,23 +11,22 @@ class Player implements IPlayerStrategy
     protected string $name;
 
     /**
-     * @var IPlayerStrategy
+     * @var PlayerStrategyInterface
      */
-    protected IPlayerStrategy $playerStrategy;
+    protected PlayerStrategyInterface $playerStrategy;
 
     /**
      * Player constructor.
      * @param string $name
-     * @param IPlayerStrategy $playerStrategy
+     * @param PlayerStrategyInterface $playerStrategy
      */
-    public function __construct(string $name, IPlayerStrategy $playerStrategy)
+    public function __construct(string $name, PlayerStrategyInterface $playerStrategy)
     {
         $this->name = $name;
         $this->playerStrategy = $playerStrategy;
-
     }
 
-    public function play(): int
+    public function play(): string
     {
         return $this->playerStrategy->play();
     }
