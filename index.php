@@ -9,10 +9,11 @@ use App\Player\Player;
 use App\Player\RandomStrategy;
 use App\Player\SimpleStrategy;
 
-$player1 = new Player('Vasa', new SimpleStrategy());
-$player2 = new Player('Peta', new RandomStrategy());
-
-$game = new Game(new StoneScissorPaperGameStrategy(), $player1, $player2);
+$game = new Game(
+    new StoneScissorPaperGameStrategy(),
+    new Player('Vasa', new SimpleStrategy()),
+    new Player('Peta', new RandomStrategy())
+);
 
 $result = [];
 

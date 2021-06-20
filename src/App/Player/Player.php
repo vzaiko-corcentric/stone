@@ -26,6 +26,9 @@ class Player implements PlayerStrategyInterface
         $this->playerStrategy = $playerStrategy;
     }
 
+    /**
+     * @return string
+     */
     public function play(): string
     {
         return $this->playerStrategy->play();
