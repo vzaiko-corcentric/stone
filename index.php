@@ -4,13 +4,13 @@ namespace App;
 require_once __DIR__ . '/vendor/autoload.php';
 
 use App\Game\Game;
-use App\Game\StoneScissorPaperGameStrategy;
+use App\Game\StoneScissorPaperGame;
 use App\Player\Player;
 use App\Player\RandomStrategy;
 use App\Player\SimpleStrategy;
 
 $game = new Game(
-    new StoneScissorPaperGameStrategy(),
+    new StoneScissorPaperGame(),
     new Player('Vasa', new SimpleStrategy()),
     new Player('Peta', new RandomStrategy())
 );
@@ -18,7 +18,9 @@ $game = new Game(
 $result = [];
 
 for ($i = 0; $i < 100; $i++) {
-    $winnerName = $game->run();
+    $winner = $game->run();
+    $winnerName = $winner!== null ? $winner->getName() : StoneScissorPaperGame::DEAT_HEAT;
+
     if (isset($result[$winnerName])) {
         $result[$winnerName]++;
     } else {

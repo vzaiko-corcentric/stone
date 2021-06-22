@@ -3,40 +3,24 @@ declare(strict_types=1);
 
 namespace App\Player;
 
-class Player implements PlayerStrategyInterface
-{
-    /**
-     * @var string
-     */
-    protected string $name;
+use App\Enum\GameActionEnum;
 
-    /**
-     * @var PlayerStrategyInterface
-     */
+class Player
+{
+    protected string $name;
     protected PlayerStrategyInterface $playerStrategy;
 
-    /**
-     * Player constructor.
-     * @param string $name
-     * @param PlayerStrategyInterface $playerStrategy
-     */
     public function __construct(string $name, PlayerStrategyInterface $playerStrategy)
     {
         $this->name = $name;
         $this->playerStrategy = $playerStrategy;
     }
 
-    /**
-     * @return string
-     */
-    public function play(): string
+    public function go(): GameActionEnum
     {
         return $this->playerStrategy->play();
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;

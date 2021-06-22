@@ -3,11 +3,9 @@ declare(strict_types=1);
 
 namespace App\Player;
 
+use MyCLabs\Enum\Enum;
+
 interface PlayerStrategyInterface
 {
-    const STONE = 'stone';
-    const SCISSORS = 'scissors';
-    const PAPER = 'paper';
-
-    public function play(): string;
+    public function play(): Enum;
 }

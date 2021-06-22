@@ -7,5 +7,5 @@ use App\Player\Player;
 
 interface GameStrategyInterface
 {
-    public function run(Player $player1, Player $player2): ?string;
+    public function run(Player $player1, Player $player2): ?Player;
 }

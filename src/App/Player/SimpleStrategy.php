@@ -3,10 +3,12 @@ declare(strict_types=1);
 
 namespace App\Player;
 
+use App\Enum\GameActionEnum;
+
 class SimpleStrategy implements PlayerStrategyInterface
 {
-    public function play(): string
+    public function play(): GameActionEnum
     {
-        return self::PAPER;
+        return GameActionEnum::PAPER();
     }
 }
